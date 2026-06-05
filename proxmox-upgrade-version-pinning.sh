@@ -1,3 +1,4 @@
+cat >/root/setup-pve-iso-pinning.sh <<'EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -83,7 +84,7 @@ set -euo pipefail
 PREF="/etc/apt/preferences.d/pve-iso-all-versions.pref"
 VERSION_FILE="/root/pve-iso-pve-manager.version"
 SCRIPT="/root/check-pve-iso-version-onboot.sh"
-SETUP_SCRIPT="/root/proxmox-upgrade-version-pinning.sh"
+SETUP_SCRIPT="/root/setup-pve-iso-pinning.sh"
 LOG="/var/log/check-pve-iso-version-onboot.log"
 
 exec >>"$LOG" 2>&1
@@ -146,7 +147,11 @@ echo "============================================================"
 echo "Dry run complete."
 echo "To perform the actual upgrade, run manually in the terminal:"
 echo
-echo "apt full-upgrade"
+echo "    apt full-upgrade"
 echo
 echo "The upgrade is NOT started automatically."
 echo "============================================================"
+EOF
+
+chmod +x /root/setup-pve-iso-pinning.sh
+/root/setup-pve-iso-pinning.sh
