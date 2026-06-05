@@ -32,7 +32,7 @@ The actual upgrade is **never run automatically**. You must run `apt full-upgrad
 
 ```bash
 # Download and run in one step
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/proxmox-upgrade-version-pinning/main/proxmox-upgrade-version-pinning.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dominiaz/proxmox-upgrade-version-pinning/main/proxmox-upgrade-version-pinning.sh | bash
 
 # Or run locally
 chmod +x proxmox-upgrade-version-pinning.sh
@@ -64,7 +64,7 @@ Run script
 
 ## Requirements
 
-- Proxmox VE 9.x (tested on 9.2)
+- Proxmox VE 9.x (tested on 9.0)
 - `curl`, `mount`, `awk`, `cron` (all present in a default PVE install)
 - Proxmox no-subscription repository enabled
 - Root access
